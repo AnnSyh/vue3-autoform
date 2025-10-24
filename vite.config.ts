@@ -3,13 +3,17 @@ import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
-  plugins: [vue()],
-  base: process.env.NODE_ENV === 'production' 
-    ? '/vue3-autoform/' 
+  plugins: [ vue() ],
+  base: process.env.NODE_ENV === 'production'
+    ? '/vue3-autoform/'
     : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false
   }
 })
